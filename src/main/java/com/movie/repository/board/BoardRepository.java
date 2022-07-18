@@ -1,6 +1,6 @@
-package com.movie.repository;
+package com.movie.repository.board;
 
-import com.movie.domain.Board;
+import com.movie.entity.Board;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface BoardRepository extends JpaRepository<Board, Long> {

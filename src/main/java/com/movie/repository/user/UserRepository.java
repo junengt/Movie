@@ -1,6 +1,6 @@
-package com.movie.repository;
+package com.movie.repository.user;
 
-import com.movie.domain.User;
+import com.movie.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Long> {

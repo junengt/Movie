@@ -1,13 +1,15 @@
-package com.movie.domain;
+package com.movie.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "USERS")
-@Getter @Setter
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED) //기본 생성자 막기
+@Builder
+@AllArgsConstructor
 public class User {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,5 +24,13 @@ public class User {
 
     @Column(name = "USER_NAME", nullable = false)
     private String username;
+
+    //테스트용 유저 생성자
+    public User(String email, String password, String username) {
+        this.email = email;
+        this.password = password;
+        this.username = username;
+    }
+
 
 }

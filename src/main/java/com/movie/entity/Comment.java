@@ -1,6 +1,8 @@
-package com.movie.domain;
+package com.movie.entity;
 
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
@@ -9,6 +11,7 @@ import static javax.persistence.FetchType.*;
 @Entity
 @Table(name = "COMMENT")
 @Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Comment {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

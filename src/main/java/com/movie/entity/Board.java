@@ -1,6 +1,9 @@
-package com.movie.domain;
+package com.movie.entity;
 
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -10,8 +13,9 @@ import static javax.persistence.FetchType.*;
 
 @Entity
 @Table(name = "BOARD")
-@Getter
-public class Board {
+@Getter @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+public class Board extends BaseEntity{
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "BOARD_ID")
@@ -36,4 +40,9 @@ public class Board {
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "USER_ID")
     private User user;
+
+    public Board test(User user) {
+        this.user = user;
+        return this;
+    }
 }
